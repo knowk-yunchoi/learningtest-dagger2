@@ -18,7 +18,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        assert(mainFragment != null)
+//        checkNotNull(mainFragment)
         assert(viewModel == ViewModelProviders.of(this).get(MainViewModel::class.java))
 
         viewModel.foobarNumber = 20

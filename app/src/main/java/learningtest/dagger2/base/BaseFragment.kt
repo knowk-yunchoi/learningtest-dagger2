@@ -1,13 +1,5 @@
 package learningtest.dagger2.base
 
-import android.content.Context
-import androidx.fragment.app.Fragment
-import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 
-abstract class BaseFragment : Fragment() {
-
-    override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
-    }
-}
+abstract class BaseFragment : DaggerFragment()

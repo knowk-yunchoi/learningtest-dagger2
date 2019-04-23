@@ -1,9 +1,19 @@
 package learningtest.dagger2.di
 
+import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import javax.inject.Singleton
+import learningtest.dagger2.LearningTestApplication
 
-@Singleton
-@Component(modules = [AndroidSupportInjectionModule::class, AppModule::class, FeaturesModule::class])
-interface AppComponent : LearningTestAppComponent
+@Component(modules = [AndroidSupportInjectionModule::class, AndroidInjectBuilder::class])
+interface AppComponent: AndroidInjector<LearningTestApplication> {
+
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: LearningTestApplication): Builder
+        fun build(): AppComponent
+    }
+
+}
