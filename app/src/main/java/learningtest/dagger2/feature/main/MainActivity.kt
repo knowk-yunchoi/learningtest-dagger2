@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModelProviders
 import learningtest.dagger2.R
 import learningtest.dagger2.base.BaseActivity
 import javax.inject.Inject
+import javax.inject.Named
 
 class MainActivity : BaseActivity() {
 
-    @Inject
-    lateinit var mainFragment: MainFragment
+    val mainFragment: MainFragment = MainFragment.newInstance()
 
     @Inject
+    @field:Named("activityViewModel")
     lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
