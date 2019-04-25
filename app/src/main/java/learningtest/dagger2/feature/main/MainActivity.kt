@@ -9,7 +9,9 @@ import javax.inject.Named
 
 class MainActivity : BaseActivity() {
 
-    val mainFragment: MainFragment = MainFragment.newInstance()
+    @Inject
+    @field:Named("mainFragmentInstance")
+    lateinit var mainFragment: MainFragment
 
     @Inject
     @field:Named("activityViewModel")

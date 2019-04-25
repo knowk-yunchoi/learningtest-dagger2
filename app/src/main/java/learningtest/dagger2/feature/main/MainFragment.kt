@@ -28,6 +28,9 @@ class MainFragment : BaseFragment() {
 
         assert(fragmentViewModel != null)
         assert(fragmentViewModel.foobarNumber == 10)
+
+        val activityMainFragment = requireFragmentManager().findFragmentById(R.id.container)
+        assert(activityMainFragment == this)
     }
 
     override fun onCreateView(
