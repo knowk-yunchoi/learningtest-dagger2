@@ -21,6 +21,9 @@ class MainActivityModule {
     @Provides
     @Named("mainFragmentInstance")
     fun provideMainFragment(): MainFragment = MainFragment.newInstance()
+
+    @Provides
+    fun provideViewModel2(mainRepository: MainRepository): MainViewModel2 = MainViewModel2(mainRepository)
 }
 
 @Module
