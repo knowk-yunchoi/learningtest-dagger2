@@ -6,4 +6,5 @@ import javax.inject.Scope
 annotation class ActivityScope
 
 @Scope
+@Target(AnnotationTarget.TYPE, AnnotationTarget.FUNCTION)
 annotation class FragmentScope

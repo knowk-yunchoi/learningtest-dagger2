@@ -8,8 +8,8 @@ import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
 
-//    @Inject
-//    lateinit var mainFragment: MainFragment
+    @Inject
+    lateinit var mainFragment: MainFragment
 
     @Inject
     lateinit var viewModel: MainViewModel
@@ -18,13 +18,13 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        checkNotNull(mainFragment)
+        checkNotNull(mainFragment)
         assert(viewModel == ViewModelProviders.of(this).get(MainViewModel::class.java))
 
         viewModel.foobarNumber = 20
 
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.container, mainFragment)
-//            .commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, mainFragment)
+            .commit()
     }
 }

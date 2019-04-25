@@ -2,13 +2,15 @@ package learningtest.dagger2.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import learningtest.dagger2.feature.main.MainActivity
-import learningtest.dagger2.feature.main.MainModule
+import learningtest.dagger2.feature.main.*
 
 @Module
 abstract class AndroidInjectBuilder {
 
-    @ContributesAndroidInjector(modules = [MainModule::class])
+    @ContributesAndroidInjector(modules = [MainActivityModule::class])
     abstract fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector(modules = [MainFragmentModule::class])
+    abstract fun bindMainFragment(): MainFragment
 
 }

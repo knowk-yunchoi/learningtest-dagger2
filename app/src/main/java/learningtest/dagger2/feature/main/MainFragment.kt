@@ -7,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import learningtest.dagger2.R
 import learningtest.dagger2.base.BaseFragment
-import learningtest.dagger2.di.ActivityScope
 import javax.inject.Inject
 import javax.inject.Named
 
-@ActivityScope
 class MainFragment : BaseFragment() {
 
     @Inject
+    @field:Named("activityViewModel")
     lateinit var activityViewModel: MainViewModel
 
     @Inject
+    @field:Named("fragmentViewModel")
     lateinit var fragmentViewModel: MainViewModel
 
     override fun onAttach(context: Context) {
@@ -26,8 +26,8 @@ class MainFragment : BaseFragment() {
         assert(activityViewModel != null)
         assert(activityViewModel.foobarNumber == 20)
 
-//        assert(fragmentViewModel != null)
-//        assert(fragmentViewModel.foobarNumber == 10)
+        assert(fragmentViewModel != null)
+        assert(fragmentViewModel.foobarNumber == 10)
     }
 
     override fun onCreateView(
