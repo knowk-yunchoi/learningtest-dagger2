@@ -8,7 +8,7 @@ import learningtest.dagger2.LearningTestApplication
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidSupportInjectionModule::class, AndroidInjectBuilder::class])
+@Component(modules = [AndroidSupportInjectionModule::class, AndroidActivityBuilder::class])
 interface AppComponent: AndroidInjector<LearningTestApplication> {
 
     @Component.Builder

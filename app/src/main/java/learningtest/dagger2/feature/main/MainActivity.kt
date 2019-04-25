@@ -19,15 +19,21 @@ class MainActivity : BaseActivity() {
     @field:Named("activityViewModel")
     lateinit var viewModel: MainViewModel
 
+    /**
+     * Activity/Fragment/BroadcastReceiver/Service/ContentProvider 외에 클래스 내부에서 DI 받아야 하는 경우 팩토리 또는 수동으로 의존성 주입해줘야 함.
+     */
     @Inject
     lateinit var mainViewModel2Factory: ViewModelFactory<MainViewModel2>
+    private val mainViewModel2: MainViewModel2 by lazy {
+        mainViewModel2Factory.get(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         checkNotNull(mainFragment)
-        checkNotNull(mainViewModel2Factory.get(this).mainRepository)
+        checkNotNull(mainViewModel2.mainRepository)
         assert(viewModel == ViewModelProviders.of(this).get(MainViewModel::class.java))
 
         viewModel.foobarNumber = 20

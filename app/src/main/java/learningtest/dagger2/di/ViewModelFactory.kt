@@ -1,5 +1,6 @@
 package learningtest.dagger2.di
 
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -14,3 +15,4 @@ class ViewModelFactory<T : ViewModel> @Inject constructor(
 }
 
 inline fun <reified T : ViewModel> ViewModelFactory<T>.get(activity: FragmentActivity): T = ViewModelProviders.of(activity, this).get(T::class.java)
+inline fun <reified T : ViewModel> ViewModelFactory<T>.get(fragment: Fragment): T = ViewModelProviders.of(fragment, this).get(T::class.java)
